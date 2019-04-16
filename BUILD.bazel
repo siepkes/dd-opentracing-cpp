@@ -55,7 +55,7 @@ genrule(
     ],
     cmd = """
     TEMP_DIR=$$(mktemp -d)
-    trap -- 'rm -r $$TEMP_DIR' EXIT
+    trap -- 'rm -rf $$TEMP_DIR' EXIT
     VERSION_NUMBER_H_OUT=$${PWD}/$(location :version_number.h)
     CMAKE_ROOT=$$(dirname $${PWD}/$(location :CMakeLists.txt))
     cd $$TEMP_DIR
